@@ -1,0 +1,48 @@
+import java.util.Scanner;
+ class Order {
+    String customerName;
+    String cakeType;
+    int quantity;
+    double pricePerCake;
+    public Order(String customerName, String cakeType, int quantity) {
+        this.customerName = customerName;
+        this.cakeType = cakeType;
+        this.quantity = quantity;
+        switch (cakeType.toLowerCase()) {
+            case "chocolate":
+                this.pricePerCake = 7350;
+                break;
+            case "vanilla":
+                this.pricePerCake = 7300;
+                break;
+            default:
+                this.pricePerCake = 7250;
+                break;
+        }
+    }
+    public double calculateTotalPrice() {
+        return quantity * pricePerCake;
+    }
+    public void displayOrderDetails() {
+        System.out.println("\nOrder Details:");
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Cake Type: " + cakeType);
+        System.out.println("Quantity Ordered: " + quantity);
+        System.out.println("Price per Cake: ₹" + pricePerCake);
+        System.out.println("Total Price: ₹" + calculateTotalPrice());
+    }
+ }
+ public class BakeryOrderSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the customer's name: ");
+        String customerName = scanner.nextLine();
+        System.out.print("Enter the type of cake (Chocolate/Vanilla/Other): ");
+        String cakeType = scanner.nextLine();
+        System.out.print("Enter the quantity of cakes: ");
+        int quantity = scanner.nextInt();
+        Order order = new Order(customerName, cakeType, quantity);
+        order.displayOrderDetails();
+        scanner.close();
+    }
+ }
