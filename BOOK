@@ -1,0 +1,31 @@
+class Book {
+    String title;
+    String author;
+    double price;
+    int stock;
+    public Book(String title, String author, double price, int stock) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.stock = stock;
+    }
+    public Book(String title, String author) {
+        this(title, author, 500, 10); 
+    }
+    public void displayDetails() {
+        System.out.println("\nBook Details:");
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Price: ₹" + price);
+        System.out.println("Stock: " + stock);
+    }
+ }
+ public class BookStore {
+    public static void main(String[] args) {
+        Book book1 = new Book("Effective Java", "Joshua Bloch", 7800, 20);
+        Book book2 = new Book("Java Programming", "James Gosling");
+        System.out.println("Following books are created:");
+        book1.displayDetails();
+        book2.displayDetails();
+    }
+ }
