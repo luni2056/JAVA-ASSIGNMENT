@@ -1,0 +1,43 @@
+ import java.util.Scanner;
+ public class ShoppingApp {
+    public static void calculateTotal(double price) {
+        double totalPrice = price;
+        System.out.println("Total price: " + totalPrice);
+    }
+    public static void calculateTotal(double price, int quantity) {
+        double totalPrice = price * quantity;
+        System.out.println("Total price: " + totalPrice);
+    }
+    public static void calculateTotal(double price1, double price2, double price3) {
+        double totalPrice = price1 + price2 + price3;
+        System.out.println("Total price: " + totalPrice);
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of items: ");
+        int numberOfItems = scanner.nextInt();
+        if (numberOfItems == 1) {
+            System.out.print("Enter the price of the item: ");
+            double price = scanner.nextDouble();
+            calculateTotal(price);
+        } else if (numberOfItems > 1) {
+            if (numberOfItems == 3) {
+                System.out.print("Enter the price of item 1: ");
+                double price1 = scanner.nextDouble();
+                System.out.print("Enter the price of item 2: ");
+                double price2 = scanner.nextDouble();
+                System.out.print("Enter the price of item 3: ");
+                double price3 = scanner.nextDouble();
+                calculateTotal(price1, price2, price3);
+            } else {
+                System.out.print("Enter the price of one item: ");
+                double itemPrice = scanner.nextDouble();
+                System.out.print("Enter the quantity: ");
+                int quantity = scanner.nextInt();
+                calculateTotal(itemPrice, quantity);
+            }
+        } else {
+            System.out.println("Invalid number of items. Please enter 1, 2, or 3 items.");
+        }
+        scanner.close();
+    }}
