@@ -1,0 +1,31 @@
+import java.util.Arrays;
+ import java.util.Scanner;
+ public class reversestring {
+ public static void reverseArray(String[] array) {
+    int start = 0;
+    int end = array.length - 1;
+        while (start < end) {
+        String temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start++;
+        end--;
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        String[] array = new String[n];
+        System.out.println("Enter " + n + " strings:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextLine();
+        }
+        System.out.println("\nOriginal array: " + Arrays.toString(array));
+        reverseArray(array);
+        System.out.println("Reversed array: " + Arrays.toString(array));
+        scanner.close();
+    }
+ }
+ 
